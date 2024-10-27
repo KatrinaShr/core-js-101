@@ -207,8 +207,13 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const result = [];
+  result.push(isStartIncluded ? '[' : '(');
+  result.push(a > b ? `${b}, ` : `${a}, `);
+  result.push(a > b ? a : b);
+  result.push(isEndIncluded ? ']' : ')');
+  return result.join('');
 }
 
 
@@ -224,8 +229,12 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  const result = [];
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    result.push(str[i]);
+  }
+  return result.join('');
 }
 
 
